@@ -1,0 +1,155 @@
+#announcement-banner{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#announcement-banner, .banner {
+  background: #cf476b !important;  
+  color:#fff;
+  overflow-x: hidden;
+  contain: strict;
+  overflow-y: hidden;
+  transition: margin .2s cubic-bezier(.33,1,.68,1);
+  position: sticky;
+  top: 0;
+  height: 60px;
+  z-index: -1;
+}
+
+/*so that contents of banner are still clickable,*/
+/*instead of setting it's z-index to -1*/
+/*main{*/
+/*  z-index:1;*/
+/*  position:relative;*/
+/*}*/
+
+#announcement-banner .row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 5%;
+  column-gap: 2rem;
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 0.5rem;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+}
+
+.announcement-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.announcement span {
+  display: inline;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.announcement-link {
+  display: inline !important;
+  font-size: 12px;
+  font-weight: 400;
+  background: #b3264b;;
+  padding: 10px 20px;
+  border-radius: 10rem;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.announcement-link:hover {
+  background: #fff;
+  color: #1f294c;
+}
+
+.coupon-text {
+  padding-top: 30px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.coupon-code {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+}
+
+
+
+/*all coundowns D:M:S */
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+}
+
+.countdown-container {
+  width: 45px;
+  height: 45px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+.countdown-container .countdown-heading {
+  font-size: 8px;
+  color: #fff;
+}
+
+.countdown-container .countdown-value {
+  font-size: 19px;
+  color: #fff;
+  font-weight: 700;
+}
+
+
+
+.alert-close {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 24px;
+  text-align: center;
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+  width: 22px;
+}
+
+
+@media only screen and (max-width: 992px) {
+  #announcement-banner{
+    height: 100px;
+  }
+  .alert-close{
+    display: none;
+  }
+
+  #announcement-banner .row{
+    column-gap:unset;
+  }
+
+}
+
+
+
+
+
