@@ -584,3 +584,452 @@
 .has-discount .discount{
     margin-left: 0;
 }
+/* ==================================================================== *
+ *  ORGANIC SKIN
+ *
+ *  A botanical re-skin layered over the rules above and over classic's
+ *  theme.css. It changes surface, colour, type and shape only - no
+ *  layout or template changes - so it can be removed by deleting this
+ *  block alone.
+ *
+ *  Direction: pressed paper and dried stems instead of flat white and
+ *  the stock cyan; a serif for anything that speaks; leaf-shaped
+ *  geometry (one corner round, the opposite sharp) instead of uniform
+ *  rounded rectangles; vine rules where the page needs a divider.
+ * ==================================================================== */
+
+:root {
+    --alh-paper: #f7f3e9;
+    --alh-paper-2: #f0e8d6;
+    --alh-card: #fffdf8;
+    --alh-ink: #2f3a2c;
+    --alh-ink-soft: #6e7666;
+    --alh-line: #e0d7c2;
+
+    --alh-green: #5a7b52;
+    --alh-green-deep: #36512f;
+    --alh-green-dark: #24361f;
+    --alh-green-soft: rgba(90, 123, 82, .12);
+
+    --alh-clay: #bf6b39;
+    --alh-beet: #8d3b4a;
+    --alh-honey: #b8862f;
+
+    --alh-serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+
+    /* leaf silhouette */
+    --alh-leaf: 18px 5px 18px 5px;
+    --alh-leaf-lg: 26px 8px 26px 8px;
+    --alh-leaf-sm: 12px 3px 12px 3px;
+
+    /* a stem with two leaves, reused as a section rule */
+    --alh-vine: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='14' viewBox='0 0 180 14'%3E%3Cpath d='M0 7c22-9 45 9 68 0s46-9 68 0 22 6 44 0' fill='none' stroke='%236e7666' stroke-width='1.1' opacity='.45'/%3E%3Cellipse cx='34' cy='3' rx='5.4' ry='2.6' fill='%235a7b52' opacity='.42' transform='rotate(-21 34 3)'/%3E%3Cellipse cx='102' cy='11' rx='5.4' ry='2.6' fill='%235a7b52' opacity='.42' transform='rotate(19 102 11)'/%3E%3C/svg%3E");
+}
+
+/* ---- ground ---- */
+
+body,
+#wrapper {
+    background: var(--alh-paper);
+    color: var(--alh-ink);
+}
+
+#main .page-content,
+#main .page-header {
+    background: transparent;
+}
+
+/* ---- voice ---- */
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5,
+#main .page-header h1,
+.block-category h1,
+.products-section-title,
+.featured-products .products-section-title {
+    font-family: var(--alh-serif);
+    color: var(--alh-green-deep);
+    letter-spacing: .005em;
+}
+
+.products-section-title,
+.featured-products .products-section-title {
+    position: relative;
+    padding-bottom: 14px;
+    text-transform: none;
+}
+
+/* vine rule under a section heading */
+.products-section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 190px;
+    max-width: 60%;
+    height: 14px;
+    background-image: var(--alh-vine);
+    background-repeat: repeat-x;
+}
+
+#main .page-header h1,
+.block-category h1 {
+    text-transform: none;
+}
+
+/* ---- buttons ---- */
+
+.btn-primary,
+.btn-primary:not(:disabled):not(.disabled),
+.block_newsletter button,
+.block_newsletter input[type="submit"],
+#search_widget button[type="submit"] {
+    background-color: var(--alh-green) !important;
+    border-color: var(--alh-green) !important;
+    color: #fdfbf5 !important;
+    border-radius: var(--alh-leaf);
+    font-family: var(--alh-serif);
+    box-shadow: 0 4px 12px rgba(54, 81, 47, .18);
+    transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.btn-primary:hover,
+.block_newsletter button:hover {
+    background-color: var(--alh-green-deep) !important;
+    border-color: var(--alh-green-deep) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(54, 81, 47, .24);
+}
+
+/* secondary reads as an outline, so the primary action stands alone */
+.btn-secondary,
+.btn-tertiary,
+.product-miniature .btn-secondary {
+    background: transparent !important;
+    border: 1px solid var(--alh-green) !important;
+    color: var(--alh-green-deep) !important;
+    border-radius: var(--alh-leaf);
+    font-family: var(--alh-serif);
+    text-transform: none;
+    box-shadow: none;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.btn-secondary:hover,
+.btn-tertiary:hover {
+    background: var(--alh-green-soft) !important;
+    color: var(--alh-green-deep) !important;
+}
+
+/* ---- links and the stock cyan ---- */
+
+a {
+    color: var(--alh-green-deep);
+}
+
+a:hover {
+    color: var(--alh-clay);
+}
+
+.text-primary,
+.link-item a,
+#footer a:hover {
+    color: var(--alh-clay) !important;
+}
+
+/* ---- header ---- */
+
+#header {
+    background: var(--alh-paper);
+    border-bottom: 1px solid var(--alh-line);
+    box-shadow: none;
+}
+
+#header .header-top,
+#header .header-nav {
+    background: transparent;
+}
+
+#header .header-top a[data-depth="0"] {
+    font-family: var(--alh-serif);
+    font-weight: 400;
+    color: var(--alh-ink);
+}
+
+#header .header-top a[data-depth="0"]:hover {
+    color: var(--alh-green-deep);
+}
+
+#header .header-top a[data-depth="0"]:after {
+    background: var(--alh-green);
+    height: 2px;
+    border-radius: 2px;
+}
+
+/* ---- carousel caption ---- */
+
+.carousel .carousel-item .caption p a {
+    background-color: var(--alh-green) !important;
+    border-radius: var(--alh-leaf);
+    font-family: var(--alh-serif);
+    font-weight: 400;
+    letter-spacing: .04em;
+    box-shadow: 0 8px 20px rgba(36, 54, 31, .3);
+}
+
+.carousel .carousel-item .caption p a:hover {
+    background-color: var(--alh-green-deep) !important;
+}
+
+/* ---- breadcrumb ---- */
+
+.breadcrumb,
+.breadcrumb[data-depth] {
+    background: transparent;
+    font-family: var(--alh-serif);
+    font-size: .95rem;
+}
+
+.breadcrumb a,
+.breadcrumb li::after {
+    color: var(--alh-ink-soft);
+}
+
+/* ---- product tiles ---- */
+
+.product-miniature .thumbnail-container {
+    background: var(--alh-card);
+    border: 1px solid var(--alh-line);
+    border-radius: var(--alh-leaf-lg);
+    box-shadow: 0 6px 18px rgba(60, 72, 50, .07);
+    overflow: hidden;
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.product-miniature .thumbnail-container:hover,
+.product-miniature .thumbnail-container:focus-within {
+    transform: translateY(-4px);
+    border-color: rgba(90, 123, 82, .45);
+    box-shadow: 0 16px 32px rgba(60, 72, 50, .14);
+}
+
+.product-miniature .product-thumbnail img {
+    transition: transform .4s ease;
+}
+
+.product-miniature .thumbnail-container:hover .product-thumbnail img {
+    transform: scale(1.04);
+}
+
+.product-miniature .product-title a {
+    font-family: var(--alh-serif);
+    color: var(--alh-ink);
+    font-size: 1.02rem;
+}
+
+.product-miniature .thumbnail-container:hover .product-title a {
+    color: var(--alh-green-deep);
+}
+
+/* ---- prices ---- */
+
+.product-price-and-shipping .price,
+.product-miniature .price,
+.product-prices .current-price,
+.product-prices .current-price span {
+    font-family: var(--alh-serif);
+    font-weight: 700;
+    color: var(--alh-green-deep) !important;
+}
+
+.product-price-and-shipping .regular-price,
+.product-miniature .regular-price,
+.product-prices .regular-price {
+    color: var(--alh-ink-soft) !important;
+    font-weight: 400;
+}
+
+.discount-percentage,
+.discount-amount,
+.product-prices .discount {
+    background: var(--alh-clay) !important;
+    color: #fdfbf5 !important;
+    border-radius: var(--alh-leaf-sm);
+    font-family: var(--alh-serif);
+}
+
+/* ---- flags ---- */
+
+.product-flag {
+    /* inset, so the tile's rounded corner does not clip the badge */
+    top: 12px;
+    left: 12px;
+    padding: 5px 13px;
+    font-size: .78rem;
+    border-radius: var(--alh-leaf-sm);
+    font-family: var(--alh-serif);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: .02em;
+    background: var(--alh-green);
+    color: #fdfbf5;
+    box-shadow: 0 3px 10px rgba(36, 54, 31, .22);
+}
+
+.product-flag.discount,
+.product-flag.on-sale {
+    background: var(--alh-clay);
+}
+
+.product-flag.new {
+    background: var(--alh-beet);
+}
+
+.product-flag.pack,
+.product-flag.online-only {
+    background: var(--alh-green);
+}
+
+/* ---- panels: filters, category block, cards ---- */
+
+#search_filters,
+#search_filters_brands,
+.block-category,
+.card,
+#js-product-list-top,
+.product-accessories .card {
+    background: var(--alh-card);
+    border: 1px solid var(--alh-line);
+    border-radius: var(--alh-leaf-lg);
+    box-shadow: 0 6px 18px rgba(60, 72, 50, .06);
+}
+
+#search_filters .facet .facet-title,
+#search_filters h4 {
+    font-family: var(--alh-serif);
+    color: var(--alh-green-deep);
+}
+
+.custom-checkbox input[type="checkbox"] + span.color,
+.custom-checkbox input[type="checkbox"]:checked + span {
+    border-color: var(--alh-green);
+}
+
+/* ---- newsletter: a cream panel that survives any backdrop ---- */
+
+.block_newsletter {
+    background: var(--alh-paper-2) !important;
+    color: var(--alh-ink) !important;
+    border: 1px solid var(--alh-line);
+    border-radius: var(--alh-leaf-lg);
+    padding: 28px 26px;
+    box-shadow: 0 8px 22px rgba(60, 72, 50, .07);
+}
+
+.block_newsletter p,
+.block_newsletter h3,
+.block_newsletter .h3,
+.block_newsletter label {
+    color: var(--alh-ink) !important;
+    font-family: var(--alh-serif);
+}
+
+.block_newsletter input[type="email"],
+.block_newsletter input[type="text"] {
+    border: 1px solid var(--alh-line);
+    border-radius: 20px 6px 20px 6px;
+    background: var(--alh-card);
+    padding: 0 18px;
+    height: 44px;
+}
+
+.block_newsletter input[type="email"]:focus {
+    outline: none;
+    border-color: var(--alh-green);
+    box-shadow: 0 0 0 3px var(--alh-green-soft);
+}
+
+/* ---- footer: the dark end of the page ---- */
+
+.footer-container {
+    position: relative;
+    background: var(--alh-green-dark);
+    color: #dde0d4;
+    box-shadow: none;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+}
+
+/* a vine strung across the top edge of the footer */
+.footer-container::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 0;
+    right: 0;
+    height: 14px;
+    background-image: var(--alh-vine);
+    background-repeat: repeat-x;
+    opacity: .85;
+}
+
+.footer-container h3,
+.footer-container .h3,
+.footer-container .myaccount-title {
+    color: #f3efe2;
+    font-family: var(--alh-serif);
+    text-transform: none;
+    letter-spacing: .02em;
+}
+
+.footer-container li a,
+.footer-container a,
+.footer-container p,
+.footer-container .links a {
+    color: #c6cdb9 !important;
+}
+
+.footer-container li a:hover,
+.footer-container a:hover {
+    color: #fdfbf5 !important;
+}
+
+/* ---- odds and ends ---- */
+
+.star-content .star,
+.grade-stars .star {
+    color: var(--alh-honey) !important;
+}
+
+#product-availability .product-available {
+    color: var(--alh-green) !important;
+}
+
+.pagination .current a,
+.pagination a:hover {
+    color: var(--alh-clay);
+}
+
+.form-control:focus,
+.input-group.focus {
+    border-color: var(--alh-green);
+    box-shadow: 0 0 0 3px var(--alh-green-soft);
+    outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-miniature .thumbnail-container,
+    .product-miniature .product-thumbnail img,
+    .btn-primary,
+    .btn-secondary {
+        transition: none;
+    }
+
+    .product-miniature .thumbnail-container:hover {
+        transform: none;
+    }
+
+    .product-miniature .thumbnail-container:hover .product-thumbnail img {
+        transform: none;
+    }
+}
