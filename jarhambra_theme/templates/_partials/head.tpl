@@ -95,21 +95,6 @@
     </script>
 {/literal}
 
-{literal}
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org/",
-            "@type": "Product",
-            "name": "Rating",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "ratingCount": "20"
-            }
-        }
-    </script>
-{/literal}
-
 {block name='hook_header'}
     {$HOOK_HEADER nofilter}
 {/block}
