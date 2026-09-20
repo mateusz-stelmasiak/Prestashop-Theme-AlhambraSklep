@@ -52,7 +52,6 @@
     color: #000203;
 }
 
-
 #header .header-top a[data-depth="0"]:after {
     bottom: 0.3rem;
     content: "";
@@ -90,7 +89,6 @@
     padding: 0.5rem 0;
 }
 
-
 /*redifine breakpoint*/
 @media (max-width: 1200px) {
     #header .col-md-2 {
@@ -124,11 +122,9 @@
     height: unset;
 }
 
-
 .carousel .carousel-item img {
     width: 100vw;
 }
-
 
 @media (max-width: 1100px) {
     .carousel {
@@ -517,7 +513,6 @@
     align-items: center;
 }
 
-
 .dropdown-below-container{
     position:relative;
     opacity: 0.7;
@@ -615,8 +610,6 @@
     --alh-beet: #8d3b4a;
     --alh-honey: #b8862f;
 
-    --alh-serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
-
     /* leaf silhouette */
     --alh-leaf: 18px 5px 18px 5px;
     --alh-leaf-lg: 26px 8px 26px 8px;
@@ -647,7 +640,6 @@ h1, h2, h3, h4, h5,
 .block-category h1,
 .products-section-title,
 .featured-products .products-section-title {
-    font-family: var(--alh-serif);
     color: var(--alh-green-deep);
     letter-spacing: .005em;
 }
@@ -688,7 +680,8 @@ h1, h2, h3, h4, h5,
     border-color: var(--alh-green) !important;
     color: #fdfbf5 !important;
     border-radius: var(--alh-leaf);
-    font-family: var(--alh-serif);
+    /* buttons do not inherit the page font on their own */
+    font-family: inherit;
     box-shadow: 0 4px 12px rgba(54, 81, 47, .18);
     transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
@@ -709,7 +702,7 @@ h1, h2, h3, h4, h5,
     border: 1px solid var(--alh-green) !important;
     color: var(--alh-green-deep) !important;
     border-radius: var(--alh-leaf);
-    font-family: var(--alh-serif);
+    font-family: inherit;
     text-transform: none;
     box-shadow: none;
     transition: background-color .2s ease, color .2s ease;
@@ -751,7 +744,6 @@ a:hover {
 }
 
 #header .header-top a[data-depth="0"] {
-    font-family: var(--alh-serif);
     font-weight: 400;
     color: var(--alh-ink);
 }
@@ -771,7 +763,6 @@ a:hover {
 .carousel .carousel-item .caption p a {
     background-color: var(--alh-green) !important;
     border-radius: var(--alh-leaf);
-    font-family: var(--alh-serif);
     font-weight: 400;
     letter-spacing: .04em;
     box-shadow: 0 8px 20px rgba(36, 54, 31, .3);
@@ -786,7 +777,6 @@ a:hover {
 .breadcrumb,
 .breadcrumb[data-depth] {
     background: transparent;
-    font-family: var(--alh-serif);
     font-size: .95rem;
 }
 
@@ -822,7 +812,6 @@ a:hover {
 }
 
 .product-miniature .product-title a {
-    font-family: var(--alh-serif);
     color: var(--alh-ink);
     font-size: 1.02rem;
 }
@@ -837,7 +826,6 @@ a:hover {
 .product-miniature .price,
 .product-prices .current-price,
 .product-prices .current-price span {
-    font-family: var(--alh-serif);
     font-weight: 700;
     color: var(--alh-green-deep) !important;
 }
@@ -855,7 +843,6 @@ a:hover {
     background: var(--alh-clay) !important;
     color: #fdfbf5 !important;
     border-radius: var(--alh-leaf-sm);
-    font-family: var(--alh-serif);
 }
 
 /* ---- flags ---- */
@@ -867,7 +854,6 @@ a:hover {
     padding: 5px 13px;
     font-size: .78rem;
     border-radius: var(--alh-leaf-sm);
-    font-family: var(--alh-serif);
     font-weight: 400;
     text-transform: none;
     letter-spacing: .02em;
@@ -906,7 +892,6 @@ a:hover {
 
 #search_filters .facet .facet-title,
 #search_filters h4 {
-    font-family: var(--alh-serif);
     color: var(--alh-green-deep);
 }
 
@@ -931,11 +916,11 @@ a:hover {
 .block_newsletter .h3,
 .block_newsletter label {
     color: var(--alh-ink) !important;
-    font-family: var(--alh-serif);
 }
 
 .block_newsletter input[type="email"],
 .block_newsletter input[type="text"] {
+    font-family: inherit;
     border: 1px solid var(--alh-line);
     border-radius: 20px 6px 20px 6px;
     background: var(--alh-card);
@@ -977,7 +962,6 @@ a:hover {
 .footer-container .h3,
 .footer-container .myaccount-title {
     color: #f3efe2;
-    font-family: var(--alh-serif);
     text-transform: none;
     letter-spacing: .02em;
 }
