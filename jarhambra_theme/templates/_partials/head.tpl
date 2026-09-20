@@ -75,19 +75,23 @@
 {/block}
 
 {literal}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-195085005-1"></script>
+    {* Universal Analytics (UA-195085005-1) was removed here.
+     *
+     * Google stopped processing data for standard UA properties on
+     * 1 July 2023 and deleted them a year later, so the 128.8 KiB
+     * gtag.js this pulled in reported to nothing. GA4 is already
+     * loaded for this shop through Google Tag Manager.
+     *
+     * The dataLayer/gtag stub below is deliberately kept: other tags on
+     * the page push to it, and removing it would break any that run
+     * before GTM defines its own. It costs about 100 bytes and fetches
+     * nothing. *}
     <script>
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
             dataLayer.push(arguments);
         }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-195085005-1');
-
     </script>
 {/literal}
 
