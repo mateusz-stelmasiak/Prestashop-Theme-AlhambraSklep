@@ -1017,3 +1017,77 @@ a:hover {
         transform: none;
     }
 }
+
+/* ---- product photos on blobs ---- */
+
+/* The catalogue shots are studio cut-outs on a white ground. A soft organic
+ * blob sits behind each one and the photo is multiplied over it, so the white
+ * disappears and the jar looks dropped onto a splash of colour. A photo that
+ * is NOT on white will tint instead -- that is the cost of doing this in CSS
+ * rather than retouching the files. */
+
+.product-miniature .product-thumbnail {
+    position: relative;
+    display: block;
+}
+
+.product-miniature .product-thumbnail::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 7%;
+    right: 6%;
+    bottom: 7%;
+    left: 6%;
+    background: var(--alh-blob, rgba(169, 196, 106, .5));
+    border-radius: 64% 36% 52% 48% / 42% 58% 40% 60%;
+    transform: rotate(-4deg);
+    transition: transform .45s ease, border-radius .45s ease;
+    pointer-events: none;
+}
+
+/* No isolation on purpose: the photo has to multiply against the card behind
+ * it as well as the blob, otherwise the white outside the blob stays white. */
+.product-miniature .product-thumbnail img {
+    position: relative;
+    z-index: 1;
+    mix-blend-mode: multiply;
+}
+
+.product-miniature .thumbnail-container:hover .product-thumbnail::before,
+.product-miniature .thumbnail-container:focus-within .product-thumbnail::before {
+    transform: rotate(4deg) scale(1.04);
+    border-radius: 40% 60% 44% 56% / 58% 42% 60% 40%;
+}
+
+/* Five colours rotating down the grid so no two neighbours match. */
+.products > .product:nth-child(5n+1) {
+    --alh-blob: rgba(169, 196, 106, .5);
+}
+
+.products > .product:nth-child(5n+2) {
+    --alh-blob: rgba(191, 107, 57, .34);
+}
+
+.products > .product:nth-child(5n+3) {
+    --alh-blob: rgba(184, 134, 47, .34);
+}
+
+.products > .product:nth-child(5n+4) {
+    --alh-blob: rgba(90, 123, 82, .34);
+}
+
+.products > .product:nth-child(5n+5) {
+    --alh-blob: rgba(141, 59, 74, .28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-miniature .product-thumbnail::before {
+        transition: none;
+    }
+
+    .product-miniature .thumbnail-container:hover .product-thumbnail::before,
+    .product-miniature .thumbnail-container:focus-within .product-thumbnail::before {
+        transform: rotate(-4deg);
+    }
+}
