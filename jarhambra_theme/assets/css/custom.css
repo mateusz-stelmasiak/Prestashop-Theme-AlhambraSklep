@@ -634,13 +634,29 @@
 
 /* ---- ground ---- */
 
+/* Everything, and it has to be !important.
+ *
+ * The theme sets its face on class-based rules like .page-header h1, which
+ * out-specify any element-based override however long the selector list. The
+ * only way to take a font off a theme wholesale is to outrank all of it. */
 body,
-body h1, body h2, body h3, body h4, body h5, body h6,
-body .h1, body .h2, body .h3, body .h4, body .h5, body .h6,
-body p, body a, body span, body li, body td, body th, body label, body div,
-body input, body select, body textarea, body button,
-body .btn, body .product-title, body .price {
-    font-family: var(--alh-sans);
+body * {
+    font-family: var(--alh-sans) !important;
+}
+
+/* ...except the icon fonts, whose glyphs ARE the font. Overriding these
+ * turns the cart, the account and the language picker into stray letters. */
+.material-icons,
+.material-icons-outlined,
+.material-icons-round,
+.material-icons-sharp,
+.material-icons-two-tone {
+    font-family: "Material Icons" !important;
+}
+
+.fa, .fas, .far, .fal, .fab,
+[class^="fa-"], [class*=" fa-"] {
+    font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", FontAwesome !important;
 }
 
 body,
@@ -1048,6 +1064,36 @@ a:hover {
 .pagination .current a,
 .pagination a:hover {
     color: var(--alh-clay);
+}
+
+/* ---- form fields ---- */
+
+/* The theme filled every field with grey. On a white page that reads as a
+ * disabled control rather than as somewhere to type. */
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+select,
+textarea,
+.input-group .form-control,
+.form-control-select,
+.custom-file-input {
+    background: #ffffff !important;
+    border: 1px solid var(--alh-line) !important;
+    border-radius: 3px;
+    color: var(--alh-ink);
+    box-shadow: none;
+}
+
+.form-control::placeholder,
+input::placeholder,
+textarea::placeholder {
+    color: var(--alh-ink-soft);
+    opacity: 1;
 }
 
 .form-control:focus,
