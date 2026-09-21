@@ -74,18 +74,21 @@
     {include file="_partials/javascript.tpl" javascript=$javascript.head vars=$js_custom_vars}
 {/block}
 
+{* Universal Analytics (UA-195085005-1) was removed from here.
+ *
+ * Google stopped processing data for standard UA properties on
+ * 1 July 2023 and deleted them a year later, so the 128.8 KiB gtag.js
+ * this pulled in reported to nothing.
+ *
+ * The dataLayer/gtag stub below is deliberately kept: other tags on the
+ * page push to it, and removing it would break any that run before Tag
+ * Manager defines its own. It costs about 100 bytes and fetches nothing.
+ *
+ * This comment sits OUTSIDE the {literal} block on purpose - Smarty does
+ * not parse its own syntax inside {literal}, so a comment placed within
+ * one is emitted into <head> as raw text, which the browser then hoists
+ * into the top of <body>. *}
 {literal}
-    {* Universal Analytics (UA-195085005-1) was removed here.
-     *
-     * Google stopped processing data for standard UA properties on
-     * 1 July 2023 and deleted them a year later, so the 128.8 KiB
-     * gtag.js this pulled in reported to nothing. GA4 is already
-     * loaded for this shop through Google Tag Manager.
-     *
-     * The dataLayer/gtag stub below is deliberately kept: other tags on
-     * the page push to it, and removing it would break any that run
-     * before GTM defines its own. It costs about 100 bytes and fetches
-     * nothing. *}
     <script>
         window.dataLayer = window.dataLayer || [];
 
