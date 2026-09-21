@@ -306,20 +306,28 @@
 }
 
 /*EDIT PRODUCT MINATURE LOOK*/
-#products .products, .featured-products .products, .product-accessories .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
-    justify-content: space-between;
-}
 
+/* Fixed 250px columns with space-between put every pixel of leftover width
+ * into the gaps: three cards in a 1110px column left 360px of slack split
+ * into two 180px canyons. The columns flex instead, so the slack goes into
+ * the cards and the gap stays the size it is set to. */
+#products .products, .featured-products .products, .product-accessories .products,
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
-    justify-content: space-between;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 18px;
+    justify-content: start;
 }
 
+/* The tiles still carry their col-xs-12 col-sm-6 col-lg-4 classes from the
+ * template, and those set max-width: 33.33%. Harmless while they were laid
+ * out as bootstrap columns; inside a grid cell it caps each tile at a third
+ * of its own cell and the rest of the cell becomes gap. */
+.products > .product,
 .product {
     width: 100%;
+    max-width: 100%;
+    flex: none;
     padding: unset;
 }
 
@@ -411,7 +419,7 @@
 @media only screen and (max-width: 576px) {
     #products .products, .featured-products .products, .product-accessories .products {
         display: flex;
-        row-gap: 1rem;
+        gap: 12px;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -419,7 +427,7 @@
 
     .products {
         display: flex;
-        row-gap: 1rem;
+        gap: 12px;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
