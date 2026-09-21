@@ -594,21 +594,29 @@
  * ==================================================================== */
 
 :root {
-    --alh-paper: #f7f3e9;
-    --alh-paper-2: #f0e8d6;
-    --alh-card: #fffdf8;
-    --alh-ink: #2f3a2c;
-    --alh-ink-soft: #6e7666;
-    --alh-line: #e0d7c2;
+    /* Deep and quiet rather than tinted.
+     *
+     * The first pass washed everything in cream and olive, which read as
+     * twee. This keeps the warmth in the paper only, puts the cards back on
+     * plain white, takes the green tint out of the text, and drops the three
+     * accents a long way down in lightness so they read as ink rather than
+     * as pastel. One accent does the work; the other two are for prices and
+     * sale flags, where a second colour is unavoidable. */
+    --alh-paper: #f2f0eb;
+    --alh-paper-2: #e7e4dc;
+    --alh-card: #ffffff;
+    --alh-ink: #23272a;
+    --alh-ink-soft: #6b7075;
+    --alh-line: #ddd9d0;
 
-    --alh-green: #5a7b52;
-    --alh-green-deep: #36512f;
-    --alh-green-dark: #24361f;
-    --alh-green-soft: rgba(90, 123, 82, .12);
+    --alh-green: #3f5c3a;
+    --alh-green-deep: #2b3f27;
+    --alh-green-dark: #1b2718;
+    --alh-green-soft: rgba(63, 92, 58, .10);
 
-    --alh-clay: #bf6b39;
-    --alh-beet: #8d3b4a;
-    --alh-honey: #b8862f;
+    --alh-clay: #a4542c;
+    --alh-beet: #6f2b38;
+    --alh-honey: #8a5f10;
 
     /* leaf silhouette */
     --alh-leaf: 18px 5px 18px 5px;
@@ -616,7 +624,7 @@
     --alh-leaf-sm: 12px 3px 12px 3px;
 
     /* a stem with two leaves, reused as a section rule */
-    --alh-vine: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='14' viewBox='0 0 180 14'%3E%3Cpath d='M0 7c22-9 45 9 68 0s46-9 68 0 22 6 44 0' fill='none' stroke='%236e7666' stroke-width='1.1' opacity='.45'/%3E%3Cellipse cx='34' cy='3' rx='5.4' ry='2.6' fill='%235a7b52' opacity='.42' transform='rotate(-21 34 3)'/%3E%3Cellipse cx='102' cy='11' rx='5.4' ry='2.6' fill='%235a7b52' opacity='.42' transform='rotate(19 102 11)'/%3E%3C/svg%3E");
+    --alh-vine: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='14' viewBox='0 0 180 14'%3E%3Cpath d='M0 7c22-9 45 9 68 0s46-9 68 0 22 6 44 0' fill='none' stroke='%236b7075' stroke-width='1.1' opacity='.45'/%3E%3Cellipse cx='34' cy='3' rx='5.4' ry='2.6' fill='%233f5c3a' opacity='.42' transform='rotate(-21 34 3)'/%3E%3Cellipse cx='102' cy='11' rx='5.4' ry='2.6' fill='%233f5c3a' opacity='.42' transform='rotate(19 102 11)'/%3E%3C/svg%3E");
 }
 
 /* ---- ground ---- */
@@ -1039,7 +1047,7 @@ a:hover {
     right: 6%;
     bottom: 7%;
     left: 6%;
-    background: var(--alh-blob, rgba(169, 196, 106, .5));
+    background: var(--alh-blob, rgba(63, 92, 58, .20));
     border-radius: 64% 36% 52% 48% / 42% 58% 40% 60%;
     transform: rotate(-4deg);
     transition: transform .45s ease, border-radius .45s ease;
@@ -1060,25 +1068,18 @@ a:hover {
     border-radius: 40% 60% 44% 56% / 58% 42% 60% 40%;
 }
 
-/* Five colours rotating down the grid so no two neighbours match. */
-.products > .product:nth-child(5n+1) {
-    --alh-blob: rgba(169, 196, 106, .5);
+/* Three tones, not five. A rotating five-colour pastel set reads as a
+ * children's chart; three deep ones at low opacity read as a decision. */
+.products > .product:nth-child(3n+1) {
+    --alh-blob: rgba(63, 92, 58, .20);
 }
 
-.products > .product:nth-child(5n+2) {
-    --alh-blob: rgba(191, 107, 57, .34);
+.products > .product:nth-child(3n+2) {
+    --alh-blob: rgba(164, 84, 44, .18);
 }
 
-.products > .product:nth-child(5n+3) {
-    --alh-blob: rgba(184, 134, 47, .34);
-}
-
-.products > .product:nth-child(5n+4) {
-    --alh-blob: rgba(90, 123, 82, .34);
-}
-
-.products > .product:nth-child(5n+5) {
-    --alh-blob: rgba(141, 59, 74, .28);
+.products > .product:nth-child(3n+3) {
+    --alh-blob: rgba(35, 39, 42, .10);
 }
 
 @media (prefers-reduced-motion: reduce) {
