@@ -602,12 +602,15 @@
      * accents a long way down in lightness so they read as ink rather than
      * as pastel. One accent does the work; the other two are for prices and
      * sale flags, where a second colour is unavoidable. */
-    --alh-paper: #ffffff;
-    --alh-paper-2: #f4f4f4;
+    /* A light grey ground with white cards on it. Pure white everywhere left
+     * nothing to separate a card from the page behind it, which is what made
+     * the whole thing read as flat. */
+    --alh-paper: #f2f2f2;
+    --alh-paper-2: #e9e9e9;
     --alh-card: #ffffff;
-    --alh-ink: #1c1c1c;
-    --alh-ink-soft: #6a6a6a;
-    --alh-line: #e4e4e4;
+    --alh-ink: #1f2320;
+    --alh-ink-soft: #6a6f6c;
+    --alh-line: #e2e2e2;
 
     /* The shop shipped with a rounded geometric face. Everything goes back
      * to the reader's own system font: plainer, and no download. */
@@ -829,7 +832,7 @@ a:hover {
     background: var(--alh-card);
     border: 1px solid var(--alh-line);
     border-radius: var(--alh-leaf);
-    box-shadow: none;
+    box-shadow: 0 2px 8px rgba(31, 35, 32, .05);
     overflow: hidden;
     transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
@@ -847,7 +850,7 @@ a:hover {
 .product-miniature .thumbnail-container:focus-within {
     transform: translateY(-2px);
     border-color: var(--alh-green);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, .06);
+    box-shadow: 0 8px 20px rgba(31, 35, 32, .10);
 }
 
 .product-miniature .product-thumbnail img {
@@ -933,7 +936,7 @@ a:hover {
     background: var(--alh-card);
     border: 1px solid var(--alh-line);
     border-radius: var(--alh-leaf);
-    box-shadow: none;
+    box-shadow: 0 2px 8px rgba(31, 35, 32, .05);
 }
 
 /* The sort row is a line of text and a select, not a panel. Painted as one
@@ -1117,72 +1120,5 @@ textarea::placeholder {
 
     .product-miniature .thumbnail-container:hover .product-thumbnail img {
         transform: none;
-    }
-}
-
-/* ---- product photos on blobs ---- */
-
-/* The catalogue shots are studio cut-outs on a white ground. A soft organic
- * blob sits behind each one and the photo is multiplied over it, so the white
- * disappears and the jar looks dropped onto a splash of colour. A photo that
- * is NOT on white will tint instead -- that is the cost of doing this in CSS
- * rather than retouching the files. */
-
-.product-miniature .product-thumbnail {
-    position: relative;
-    display: block;
-}
-
-.product-miniature .product-thumbnail::before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    top: 7%;
-    right: 6%;
-    bottom: 7%;
-    left: 6%;
-    background: var(--alh-blob, rgba(63, 92, 58, .20));
-    border-radius: 64% 36% 52% 48% / 42% 58% 40% 60%;
-    transform: rotate(-4deg);
-    transition: transform .45s ease, border-radius .45s ease;
-    pointer-events: none;
-}
-
-/* No isolation on purpose: the photo has to multiply against the card behind
- * it as well as the blob, otherwise the white outside the blob stays white. */
-.product-miniature .product-thumbnail img {
-    position: relative;
-    z-index: 1;
-    mix-blend-mode: multiply;
-}
-
-.product-miniature .thumbnail-container:hover .product-thumbnail::before,
-.product-miniature .thumbnail-container:focus-within .product-thumbnail::before {
-    transform: rotate(4deg) scale(1.04);
-    border-radius: 40% 60% 44% 56% / 58% 42% 60% 40%;
-}
-
-/* Three tones, not five. A rotating five-colour pastel set reads as a
- * children's chart; three deep ones at low opacity read as a decision. */
-.products > .product:nth-child(3n+1) {
-    --alh-blob: rgba(63, 92, 58, .20);
-}
-
-.products > .product:nth-child(3n+2) {
-    --alh-blob: rgba(164, 84, 44, .18);
-}
-
-.products > .product:nth-child(3n+3) {
-    --alh-blob: rgba(35, 39, 42, .10);
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .product-miniature .product-thumbnail::before {
-        transition: none;
-    }
-
-    .product-miniature .thumbnail-container:hover .product-thumbnail::before,
-    .product-miniature .thumbnail-container:focus-within .product-thumbnail::before {
-        transform: rotate(-4deg);
     }
 }
