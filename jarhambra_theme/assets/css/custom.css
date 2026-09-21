@@ -602,12 +602,17 @@
      * accents a long way down in lightness so they read as ink rather than
      * as pastel. One accent does the work; the other two are for prices and
      * sale flags, where a second colour is unavoidable. */
-    --alh-paper: #f2f0eb;
-    --alh-paper-2: #e7e4dc;
+    --alh-paper: #ffffff;
+    --alh-paper-2: #f4f4f4;
     --alh-card: #ffffff;
-    --alh-ink: #23272a;
-    --alh-ink-soft: #6b7075;
-    --alh-line: #ddd9d0;
+    --alh-ink: #1c1c1c;
+    --alh-ink-soft: #6a6a6a;
+    --alh-line: #e4e4e4;
+
+    /* The shop shipped with a rounded geometric face. Everything goes back
+     * to the reader's own system font: plainer, and no download. */
+    --alh-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
 
     --alh-green: #3f5c3a;
     --alh-green-deep: #2b3f27;
@@ -628,6 +633,15 @@
 }
 
 /* ---- ground ---- */
+
+body,
+body h1, body h2, body h3, body h4, body h5, body h6,
+body .h1, body .h2, body .h3, body .h4, body .h5, body .h6,
+body p, body a, body span, body li, body td, body th, body label, body div,
+body input, body select, body textarea, body button,
+body .btn, body .product-title, body .price {
+    font-family: var(--alh-sans);
+}
 
 body,
 #wrapper {
@@ -798,17 +812,26 @@ a:hover {
 .product-miniature .thumbnail-container {
     background: var(--alh-card);
     border: 1px solid var(--alh-line);
-    border-radius: var(--alh-leaf-lg);
-    box-shadow: 0 6px 18px rgba(60, 72, 50, .07);
+    border-radius: var(--alh-leaf);
+    box-shadow: none;
     overflow: hidden;
     transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
 
+/* The photo sat in a deep well of white. Pull the card in around it. */
+.product-miniature .product-description {
+    padding: 0 14px 14px;
+}
+
+.product-miniature .product-thumbnail {
+    padding: 6px 6px 0;
+}
+
 .product-miniature .thumbnail-container:hover,
 .product-miniature .thumbnail-container:focus-within {
-    transform: translateY(-4px);
-    border-color: rgba(90, 123, 82, .45);
-    box-shadow: 0 16px 32px rgba(60, 72, 50, .14);
+    transform: translateY(-2px);
+    border-color: var(--alh-green);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .06);
 }
 
 .product-miniature .product-thumbnail img {
@@ -890,12 +913,37 @@ a:hover {
 #search_filters_brands,
 .block-category,
 .card,
-#js-product-list-top,
 .product-accessories .card {
     background: var(--alh-card);
     border: 1px solid var(--alh-line);
-    border-radius: var(--alh-leaf-lg);
-    box-shadow: 0 6px 18px rgba(60, 72, 50, .06);
+    border-radius: var(--alh-leaf);
+    box-shadow: none;
+}
+
+/* The sort row is a line of text and a select, not a panel. Painted as one
+ * it was a white slab the width of the content column, running up against
+ * the filter card beside it. */
+#js-product-list-top {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Tighter than the theme's default: the panel was carrying far more white
+ * than the four lines of filters inside it needed. */
+#search_filters {
+    padding: 18px 20px;
+}
+
+#search_filters .facet {
+    padding: 0;
+    margin-bottom: 14px;
+}
+
+#search_filters .facet:last-child {
+    margin-bottom: 0;
 }
 
 #search_filters .facet .facet-title,
@@ -916,7 +964,7 @@ a:hover {
     border: 1px solid var(--alh-line);
     border-radius: var(--alh-leaf-lg);
     padding: 28px 26px;
-    box-shadow: 0 8px 22px rgba(60, 72, 50, .07);
+    box-shadow: none;
 }
 
 .block_newsletter p,
