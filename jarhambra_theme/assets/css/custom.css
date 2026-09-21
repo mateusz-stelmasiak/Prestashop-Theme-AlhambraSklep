@@ -961,18 +961,77 @@ a:hover {
 }
 
 /* Tighter than the theme's default: the panel was carrying far more white
- * than the four lines of filters inside it needed. */
+ * than the few lines of filters inside it needed, and its column is a fixed
+ * quarter of the page whatever the content, so the slack showed as a white
+ * margin down the right of every label. */
 #search_filters {
-    padding: 18px 20px;
+    padding: 14px 16px;
+}
+
+#search_filters > .h6:first-child,
+#search_filters > p:first-child {
+    margin-bottom: 10px;
 }
 
 #search_filters .facet {
     padding: 0;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 
 #search_filters .facet:last-child {
     margin-bottom: 0;
+}
+
+#search_filters .facet ul,
+#search_filters .facet li {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#search_filters .facet .facet-title {
+    margin-bottom: 4px;
+}
+
+/* ---- the sort control ---- */
+
+/* It is a button in a col-md-9, so it stretched to three quarters of half
+ * the content column: a white box several times the width of the one word
+ * inside it. It only ever needs to be as wide as its longest option. */
+#js-product-list-top .products-sort-order {
+    width: auto;
+    max-width: none;
+    flex: 0 0 auto;
+    padding-right: 0;
+}
+
+#js-product-list-top .products-sort-order .select-title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: auto;
+    min-width: 170px;
+    max-width: 260px;
+    padding: 7px 12px;
+    background: var(--alh-card);
+    border: 1px solid var(--alh-line);
+    border-radius: 3px;
+}
+
+#js-product-list-top .sort-by-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin: 0;
+}
+
+#js-product-list-top .sort-by {
+    width: auto;
+    max-width: none;
+    flex: 0 0 auto;
+    padding: 0;
 }
 
 #search_filters .facet .facet-title,
