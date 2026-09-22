@@ -440,17 +440,23 @@
     }
 
     .product-miniature .thumbnail-container {
-        width: 90%;
-        overflow: unset;
+        /* Was 90% with overflow: unset, which left a tenth of the row empty
+         * and let anything inside escape the card. */
+        width: 100%;
+        overflow: hidden;
     }
 
     .product-miniature .thumbnail-container .product-thumbnail img {
         width: 100%
     }
 
-    /*cool effect etiquets to the left*/
+    /* The badge used to hang a whole rem outside the card. On a phone the
+     * card is already against the edge of the screen, so "PAKIET" came out
+     * as "AKIET" with the rest off-screen. It sits inside now. */
     .product-flags {
-        left: -1rem;
+        left: 0;
+        right: auto;
+        max-width: 100%;
     }
 
     .product-miniature .product-title a {
@@ -920,6 +926,24 @@ a:hover {
     background: var(--alh-green);
     color: #fdfbf5;
     box-shadow: 0 3px 10px rgba(36, 54, 31, .22);
+}
+
+/* Whatever a flag says, it stays inside the tile and on one line. */
+.product-miniature .product-flags {
+    left: 0;
+    right: auto;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.product-miniature .product-flag {
+    max-width: calc(100% - 24px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
 }
 
 .product-flag.discount,
