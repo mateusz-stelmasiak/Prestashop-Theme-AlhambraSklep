@@ -28,19 +28,16 @@
             <div class="row">
                 <div class="logo-links-container">
                     <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
-                        {if $shop.logo_details}
-                            {if $page.page_name == 'index'}
-                                <h1>
-                                    {renderLogo}
-                                </h1>
-                            {else}
-                                {renderLogo}
-                            {/if}
-                        {else}
-                            <a class="alh-wordmark" href="{$urls.pages.index}" title="{$shop.name}">
-                                <span class="alh-wordmark__top">Sklep</span>
-                                <span class="alh-wordmark__name">Alhambra</span>
+                        {* the green brand logo ships with the theme; the back-office logo is still used in e-mails and invoices *}
+                        {capture name='alh_logo'}
+                            <a class="alh-logo" href="{$urls.pages.index}">
+                                <img src="{$urls.theme_assets}img/logo-alhambra-green.png" alt="{$shop.name}" width="271" height="89">
                             </a>
+                        {/capture}
+                        {if $page.page_name == 'index'}
+                            <h1>{$smarty.capture.alh_logo nofilter}</h1>
+                        {else}
+                            {$smarty.capture.alh_logo nofilter}
                         {/if}
                     </div>
                     <div class="header-top-right position-static">

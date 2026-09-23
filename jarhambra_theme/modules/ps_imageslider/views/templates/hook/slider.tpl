@@ -8,7 +8,7 @@
     <ul class="carousel-inner" role="listbox" aria-label="{l s='Carousel container' d='Shop.Theme.Global'}">
       {foreach from=$homeslider.slides item=slide name='homeslider'}
         <li class="carousel-item {if $smarty.foreach.homeslider.first}active{/if}" role="option" aria-hidden="{if $smarty.foreach.homeslider.first}false{else}true{/if}">
-            <figure>
+            <figure{if $slide.title || $slide.description} class="has-caption"{/if}>
               <img src="{$slide.image_url}" alt="{$slide.legend|escape}" loading="lazy">
               {if $slide.title || $slide.description}
                 <figcaption class="caption">

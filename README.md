@@ -11,19 +11,28 @@ A custom theme made for https://alhambrasklep.pl/ prestashop e-commerce store.
 The theme is a child of PrestaShop 1.7 **Classic** (`use_parent_assets: true`). The whole look lives in
 `jarhambra_theme/assets/css/custom.css`, split into three parts:
 
-1. **Tokens** (`:root`): paper & ink colours, greens, harvest accents (clay / beet / honey), the pink promo colour,
-   type (Georgia for headings, nav, prices and breadcrumb; Noto Sans for body, forms, buttons and flags), shape,
-   motion and spacing, plus the `--alh-vine` rule.
-2. **Layout**: single-row header, full-bleed carousel, 250px product grid, payment and invoice blocks.
+1. **Tokens** (`:root`): paper & ink colours, greens (incl. sage), harvest accents (clay / beet / honey), the pink
+   promo colour, type (Georgia for headings, nav, prices and breadcrumb; Noto Sans for body, forms, buttons, tile
+   titles and flags), shape, motion, spacing, the `--alh-vine` rule and the `--alh-blob` leaf silhouette.
+2. **Layout**: single-row header, split hero carousel, 250px product grid, payment and invoice blocks.
 3. **Skin**: surfaces, colour, type and shape over Classic.
 
 The rules are:
-- Keep it square. Cards, panels, inputs and flags have a 0 radius, and buttons have 2px. No pills or circles.
-- No shadows, lifts or glows. On hover only the colour changes. The one exception is a faint shadow when you hover a product tile.
-- Use sentence case. Uppercase is only for coupon codes.
-- Use the vine rule under section titles and across the top edge of the footer.
-- Put the carousel caption on a flat paper card in the photo's empty corner (bottom-left).
-- Keep the pink announcement bar (`ppannouncements`) for time-limited promos only.
+- **Header:** the green Alhambra logo (`assets/img/logo-alhambra-green.png`) sits on the left, before the serif menu.
+  The current category keeps its green underline.
+- **Hero:** the copy sits on a paper panel on the left (a small green uppercase eyebrow, a serif line, text and a
+  button). The photo fills the right. The arrows are white squares in the bottom-right corner. On phones the photo sits
+  above the copy.
+- **Product tiles:** there's no frame, only the photo, a sans title, a serif bold price and a small uppercase
+  "ZOBACZ" outline button. On hover the photo gets a thin green frame and the button turns green. Flags sit flush
+  in the photo's corner.
+- **Category page:** a "KATEGORIA" eyebrow sits over a big serif name, straight on the paper. The filters are a
+  bordered card titled "FILTRUJ WEDŁUG".
+- **Background:** large faint sage and clay leaves sit behind the content.
+- **Newsletter:** a full-width paper band sits directly on the dark green footer, with a solid sage leaf where the
+  two meet.
+- **Shapes:** everything is square. Cards, panels, inputs and flags have a 0 radius, and buttons have 2px. There are
+  no shadows. Hover changes colour only.
+- **Promos:** the pink announcement bar (`ppannouncements`) is only for time-limited promos.
 
 Module overrides `ppannouncements` and `infobia_product_composer` use the same tokens (with hex fallbacks).
-If no shop logo is uploaded, the header shows a type-only "Sklep / Alhambra" wordmark.
