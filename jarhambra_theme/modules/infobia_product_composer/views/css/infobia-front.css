@@ -9,7 +9,8 @@
     height: 150px;
     width:100% ;
     background: #fff;
-    box-shadow: 2px 2px 8px 0 rgb(0 0 0 / 20%);
+    border: 1px solid var(--alh-line, #e0d7c2);
+    box-shadow: none;
      
 }
 #divInfobia{
@@ -60,6 +61,8 @@
     text-transform: initial;
     text-align: center;
     width: 100%;
+    font-family: var(--alh-sans, "Noto Sans", sans-serif);
+    color: var(--alh-ink, #2f3a2c);
 }
 
 .max-quantity-text{
@@ -112,7 +115,7 @@
     /*display: none !important;*/
 }
 .product-title{
-  color:#555 !important;
+  color: var(--alh-ink, #2f3a2c) !important;
 }
 /* HIDE RADIO */
 [type=radio] { 
@@ -126,18 +129,18 @@
 
 /* CHECKED STYLES */
 [type=radio]:checked + img {
-  outline: 2px solid #f00 !important;
+  outline: 2px solid var(--alh-green, #5a7b52) !important;
 }
     .attribname {
         line-height: 1px;
         font-size: 11px;
     }
     .current-price span{
-        color:black !important;
+        color: var(--price, #36512f) !important;
     }
    .tax-shipping-delivery-label {
 
-        color: black !important;
+        color: var(--alh-ink-soft, #6e7666) !important;
     }
     .product-prices div {
     /*margin: .625rem;
@@ -150,8 +153,9 @@
         position: fixed;
     z-index: 30;
     width: 100%;
-    background:white ;
-    box-shadow: 2px 2px 11px 0 rgb(0 0 0 / 30%);
+    background: var(--alh-card, #fffdf8);
+    border-top: 1px solid var(--alh-line, #e0d7c2);
+    box-shadow: var(--shadow-sticky, 2px 2px 11px 0 rgb(0 0 0 / 30%));
     bottom: 0;
     left: 0;
     padding: 10px;
@@ -176,6 +180,7 @@
   
     font-size: 20px ;
     color: #555 ;
+    font-family: var(--alh-sans, "Noto Sans", sans-serif);
     width: 50px;
     height: 39px;
     background: transparent;
@@ -200,12 +205,16 @@
     background: none !important;
     font-size:17px !important;
     text-align: center !important;
+    border: 1px solid var(--alh-line, #e0d7c2) !important;
+    border-radius: 0 !important;
+    color: var(--alh-ink, #2f3a2c);
     padding: unset !important;
 
 }
 .quantity:focus
 {
-    border:1px solid grey !important;
+    border:1px solid var(--alh-green, #5a7b52) !important;
+    box-shadow: var(--focus-ring, 0 0 0 3px rgba(90, 123, 82, .12));
 }  
 #divInfobia .form-control:focus, .input-group.focus {
     outline: none !important;
@@ -278,15 +287,17 @@
     .groupInfobia{
         background: white;
     padding: 10px;
-    border-radius: 8px;
+    border: 1px solid var(--alh-line, #e0d7c2);
+    border-radius: 0;
     margin: 10px;
     }
 
     .btndisplayGroup {
         background-color: white !important;
-        border-color: #fc6000 !important;
+        border-color: var(--alh-line, #e0d7c2) !important;
+        color: var(--alh-ink, #2f3a2c) !important;
         margin: 10px;
-        border-radius: 8px;
+        border-radius: 2px;
         text-align: left;
         width: 97%;
     }
@@ -307,7 +318,7 @@
     .titleOption {
         text-transform: initial;
         margin-top: 3px;
-        color:black;
+        color: var(--alh-ink, #2f3a2c);
         font-size: 18px !important;
         font-weight: bold;
    
@@ -321,8 +332,8 @@
 
  .disabledInfobia {
     pointer-events: none!important;
-    background: silver!important;
-    border-color: silver!important;
+    background: var(--alh-paper-2, #f0e8d6)!important;
+    border-color: var(--alh-line, #e0d7c2)!important;
     position: relative;
     top: 0;
     opacity: 0.5;

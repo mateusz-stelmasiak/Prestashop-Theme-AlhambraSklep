@@ -103,7 +103,7 @@
                                 </div>
 
                                 <div class="product-miniature-buttons-container">
-                                    <a href="{$product.url}" class="btn btn-secondary btn-sm" style="background-color: #ddd;">ZOBACZ</a>
+                                    <a href="{$product.url}" class="btn btn-secondary btn-sm">Zobacz</a>
                                 </div>
 
                             </div>

@@ -7,12 +7,13 @@
 }
 
 #announcement-banner, .banner {
-  background: #cf476b !important;  
+  background: var(--alh-promo, #cf476b) !important;
   color:#fff;
+  font-family: var(--alh-sans, "Noto Sans", sans-serif);
   overflow-x: hidden;
   contain: strict;
   overflow-y: hidden;
-  transition: margin .2s cubic-bezier(.33,1,.68,1);
+  transition: margin .2s var(--ease-banner, cubic-bezier(.33,1,.68,1));
   position: sticky;
   top: 0;
   height: 60px;
@@ -53,7 +54,7 @@
 
 .announcement span {
   display: inline;
-  font-size: 13px;
+  font-size: var(--fs-announce, 13px);
   font-weight: 400;
 }
 
@@ -61,16 +62,17 @@
   display: inline !important;
   font-size: 12px;
   font-weight: 400;
-  background: #b3264b;;
+  background: var(--alh-promo-deep, #b3264b);
   padding: 10px 20px;
-  border-radius: 10rem;
+  border-radius: 2px; /* square like every other button - no pills */
   color: #fff;
   margin-left: 1rem;
+  transition: background-color .2s ease, color .2s ease;
 }
 
 .announcement-link:hover {
   background: #fff;
-  color: #1f294c;
+  color: var(--alh-promo-navy, #1f294c);
 }
 
 .coupon-text {
@@ -149,7 +151,8 @@
 
 }
 
-
-
-
-
+@media (prefers-reduced-motion: reduce) {
+  #announcement-banner, .banner, .announcement-link, .alert-close {
+    transition: none;
+  }
+}

@@ -36,6 +36,11 @@
                             {else}
                                 {renderLogo}
                             {/if}
+                        {else}
+                            <a class="alh-wordmark" href="{$urls.pages.index}" title="{$shop.name}">
+                                <span class="alh-wordmark__top">Sklep</span>
+                                <span class="alh-wordmark__name">Alhambra</span>
+                            </a>
                         {/if}
                     </div>
                     <div class="header-top-right position-static">

@@ -16,8 +16,7 @@
                     <span id="upper">{$slide.legend}</span>
                     <span id="lower">{$slide.title}</span>
                   </h1>
-                  <span>{$slide.description nofilter}</span>
-                  <div class="caption-background"></div>
+                  <div class="caption-description">{$slide.description nofilter}</div>
                 </figcaption>
               {/if}
             </figure>
