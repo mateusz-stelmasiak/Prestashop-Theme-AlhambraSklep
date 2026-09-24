@@ -9,7 +9,9 @@
       {foreach from=$homeslider.slides item=slide name='homeslider'}
         <li class="carousel-item {if $smarty.foreach.homeslider.first}active{/if}" role="option" aria-hidden="{if $smarty.foreach.homeslider.first}false{else}true{/if}">
             <figure{if $slide.title || $slide.description} class="has-caption"{/if}>
-              <img src="{$slide.image_url}" alt="{$slide.legend|escape}" loading="lazy">
+              {* The first slide is the biggest thing on the home page: fetch it at once and first.
+                 Only the slides that start hidden wait until they are needed. *}
+              <img src="{$slide.image_url}" alt="{$slide.legend|escape}"{if $smarty.foreach.homeslider.first} fetchpriority="high"{else} loading="lazy"{/if}>
               {if $slide.title || $slide.description}
                 <figcaption class="caption">
                   <h1>
